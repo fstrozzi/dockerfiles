@@ -16,7 +16,7 @@ RUN ln -s dotfiles/zshrc ~/.zshrc
 RUN ln -s dotfiles/zshenv ~/.zshenv
 RUN ln -s dotfiles/tmux.conf ~/.tmux.conf
 RUN git clone https://github.com/zsh-users/antigen.git .antigen
-RUN curl -sSL https://raw.githubusercontent.com/fstrozzi/dotvim/master/install.sh | bash
+RUN git clone https://github.com/fstrozzi/dotvim-vundle.git ~/.vim
 RUN git clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
 ENV HOME /home/francesco
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
