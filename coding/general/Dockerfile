@@ -18,13 +18,11 @@ RUN git clone https://github.com/fstrozzi/dotvim-vundle.git ~/.vim
 ENV HOME /home/francesco
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 RUN chmod +x Miniconda3-latest-Linux-x86_64.sh && /bin/bash ./Miniconda3-latest-Linux-x86_64.sh -b
-RUN $HOME/miniconda3/bin/conda create -n dev -y python=3.5.1
-RUN $HOME/miniconda3/bin/conda install -n dev -y -c anaconda-cluster scala
-RUN $HOME/miniconda3/bin/conda install -n dev -y -c bioconda ruby
-RUN $HOME/miniconda3/bin/conda install -n dev -y -c rigge sbt
+RUN $HOME/miniconda3/bin/conda install -y -c anaconda-cluster scala
+RUN $HOME/miniconda3/bin/conda install -y -c bioconda ruby
+RUN $HOME/miniconda3/bin/conda install -y -c rigge sbt
 RUN curl https://raw.githubusercontent.com/n8han/conscript/master/setup.sh | sh
 RUN /bin/zsh -c "$HOME/bin/cs n8han/giter8"
 RUN echo 'export PATH=$HOME/bin:$PATH' >> .zshrc
-RUN echo 'source activate dev' >> .zshrc
 EXPOSE 8888
 CMD /bin/zsh
