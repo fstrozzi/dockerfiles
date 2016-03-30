@@ -16,11 +16,11 @@ RUN ln -s dotfiles/tmux.conf ~/.tmux.conf
 RUN git clone https://github.com/zsh-users/antigen.git .antigen
 RUN git clone https://github.com/fstrozzi/dotvim-vundle.git ~/.vim
 ENV HOME /home/francesco
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN chmod +x Miniconda3-latest-Linux-x86_64.sh && /bin/bash ./Miniconda3-latest-Linux-x86_64.sh -b
-RUN $HOME/miniconda3/bin/conda install -y -c anaconda-cluster scala
-RUN $HOME/miniconda3/bin/conda install -y -c bioconda ruby
-RUN $HOME/miniconda3/bin/conda install -y -c rigge sbt
+RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+RUN chmod +x Miniconda2-latest-Linux-x86_64.sh && /bin/bash ./Miniconda2-latest-Linux-x86_64.sh -b
+RUN $HOME/miniconda2/bin/conda install -y -c anaconda-cluster scala
+RUN $HOME/miniconda2/bin/conda install -y -c bioconda ruby
+RUN $HOME/miniconda2/bin/conda install -y -c rigge sbt
 RUN curl https://raw.githubusercontent.com/n8han/conscript/master/setup.sh | sh
 RUN /bin/zsh -c "$HOME/bin/cs n8han/giter8"
 RUN echo 'export PATH=$HOME/bin:$PATH' >> .zshrc
